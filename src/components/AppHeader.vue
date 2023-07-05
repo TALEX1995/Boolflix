@@ -1,16 +1,15 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
+import SearchBar from './SearchBar.vue'
 
 export default {
     components: {
-        AppHeader,
+        SearchBar
     }
 }
 </script>
 
 <template>
-    <AppHeader />
+    <SearchBar />
 </template>
-
 
 <style></style>
