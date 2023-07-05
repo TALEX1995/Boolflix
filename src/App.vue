@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 const keyApi = '560d97e59a83a4717fcd53ac0254fd86';
 const baseUri = 'https://api.themoviedb.org/3/search';
 
@@ -9,12 +10,13 @@ export default {
 
     data() {
         return {
-            store
+
         }
     },
 
     components: {
         AppHeader,
+        AppMain
     },
 
     methods: {
@@ -36,6 +38,7 @@ export default {
 
 <template>
     <AppHeader @searched-film="filteredMovie" />
+    <AppMain />
 </template>
 
 
