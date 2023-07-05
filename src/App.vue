@@ -23,8 +23,11 @@ export default {
                 .then((res) => {
                     store.filteredMovie = res.data.results.map((movie) => {
                         const { original_title, original_language, title, vote_average } = movie
-                        return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote: vote_average }
+                        const vote = Math.ceil(vote_average / 2)
+                        return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote }
                     })
+                }).catch((err) => {
+                    console.log(err)
                 })
         }
     }
