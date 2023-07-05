@@ -9,7 +9,7 @@ export default {
     emits: ['searched-film'],
 
     methods: {
-        getFilmName(name) {
+        getMovieName(name) {
             this.$emit('searched-film', name)
         }
     }
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <SearchBar :labelInput="'Inserisci il titolo del film'" @form-submit="getFilmName" />
+    <SearchBar :labelInput="'Inserisci il titolo del film'" @form-submit="getMovieName" />
 </template>
 
 <style></style>
