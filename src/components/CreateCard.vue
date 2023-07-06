@@ -25,15 +25,20 @@ export default {
         </li>
         <li>Titolo originale: {{ item.originalTitle }}</li>
         <li>Titolo in Italiano: {{ item.itTitle }}</li>
+
+        <!-- Condition to change language in a flag if they are en or it -->
         <li v-if="this.hasFlag">
             <img class="flag" :src="getFlagSrc" :alt="item.originalLanguage">
         </li>
         <li v-else>Lingua: {{ item.originalLanguage }}</li>
         <li>
-            <div v-for="index in 5" :key="index">
+
+            <!-- Cicle to change vote in star -->
+            <span v-for="index in 5" :key="index">
                 <span v-if="item.vote >= index"><font-awesome-icon :icon="['fas', 'star']" /></span>
                 <span v-else> <font-awesome-icon :icon="['far', 'star']" /> </span>
-            </div>
+            </span>
+
         </li>
     </ul>
 </template>

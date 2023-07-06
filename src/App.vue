@@ -20,6 +20,7 @@ export default {
     },
 
     methods: {
+        // Api request movie title based on user input text
         filteredMovie(name) {
             axios.get(`${baseUri}/movie?api_key=${keyApi}&query=${name}&language=it-IT`)
                 .then((res) => {
@@ -34,6 +35,7 @@ export default {
                 })
         },
 
+        // Api request series title based on user input text
         filteredSeries(name) {
             axios.get(`${baseUri}/tv?api_key=${keyApi}&query=${name}&language=it-IT`)
                 .then((res) => {
