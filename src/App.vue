@@ -24,9 +24,10 @@ export default {
             axios.get(`${baseUri}/movie?api_key=${keyApi}&query=${name}&language=it-IT`)
                 .then((res) => {
                     store.filteredMovies = res.data.results.map((movie) => {
-                        const { original_title, original_language, title, vote_average } = movie
+                        const { original_title, original_language, title, vote_average, poster_path } = movie
                         const vote = Math.ceil(vote_average / 2)
-                        return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote }
+                        const posterUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`
+                        return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote, posterUrl }
                     })
                 }).catch((err) => {
                     console.log(err)
@@ -37,9 +38,10 @@ export default {
             axios.get(`${baseUri}/tv?api_key=${keyApi}&query=${name}&language=it-IT`)
                 .then((res) => {
                     store.filteredSeries = res.data.results.map((movie) => {
-                        const { original_name, original_language, name, vote_average } = movie
+                        const { original_name, original_language, name, vote_average, poster_path } = movie
                         const vote = Math.ceil(vote_average / 2)
-                        return { originalTitle: original_name, originalLanguage: original_language, itTitle: name, vote }
+                        const posterUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`
+                        return { originalTitle: original_name, originalLanguage: original_language, itTitle: name, vote, posterUrl }
                     })
                 }).catch((err) => {
                     console.log(err)

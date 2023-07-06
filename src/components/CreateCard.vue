@@ -20,10 +20,13 @@ export default {
 
 <template>
     <ul>
+        <li>
+            <img :src="item.posterUrl" :alt="item.originalTitle">
+        </li>
         <li>Titolo originale: {{ item.originalTitle }}</li>
         <li>Titolo in Italiano: {{ item.itTitle }}</li>
         <li v-if="this.hasFlag">
-            <img :src="getFlagSrc" :alt="item.originalLanguage">
+            <img class="flag" :src="getFlagSrc" :alt="item.originalLanguage">
         </li>
         <li v-else>Lingua: {{ item.originalLanguage }}</li>
         <li>Voto: {{ item.vote }}</li>
@@ -32,7 +35,7 @@ export default {
 
 
 <style scoped>
-img {
+img.flag {
     max-width: 40px;
     height: auto;
 }
