@@ -25,8 +25,6 @@ export default {
 </script>
 
 <template>
-    <font-awesome-icon :icon="['fas', 'star']" />
-    <font-awesome-icon :icon="['far', 'star']" />
     <SearchBar :labelInput="'Inserisci il titolo del film o della serie tv'" @form-submit="getTitleFilter" />
 </template>
 

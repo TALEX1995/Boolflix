@@ -29,7 +29,12 @@ export default {
             <img class="flag" :src="getFlagSrc" :alt="item.originalLanguage">
         </li>
         <li v-else>Lingua: {{ item.originalLanguage }}</li>
-        <li>Voto: {{ item.vote }}</li>
+        <li>
+            <div v-for="index in 5" :key="index">
+                <span v-if="item.vote >= index"><font-awesome-icon :icon="['fas', 'star']" /></span>
+                <span v-else> <font-awesome-icon :icon="['far', 'star']" /> </span>
+            </div>
+        </li>
     </ul>
 </template>
 
