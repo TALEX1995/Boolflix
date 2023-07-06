@@ -14,11 +14,11 @@ export default {
         SearchBar
     },
 
-    emits: ['searched-film'],
+    emits: ['searched-term'],
 
     methods: {
         getMovieName(name) {
-            this.$emit('searched-film', name)
+            this.$emit('searched-term', name)
         }
     }
 }

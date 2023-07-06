@@ -31,13 +31,31 @@ export default {
                 }).catch((err) => {
                     console.log(err)
                 })
+        },
+
+        filteredSeries(name) {
+            axios.get(`${baseUri}/tv?api_key=${keyApi}&query=${name}&language=it-IT`)
+                .then((res) => {
+                    store.filteredSeries = res.data.results.map((movie) => {
+                        const { original_name, original_language, name, vote_average } = movie
+                        const vote = Math.ceil(vote_average / 2)
+                        return { originalTitle: original_name, originalLanguage: original_language, itTitle: name, vote }
+                    })
+                }).catch((err) => {
+                    console.log(err)
+                })
+        },
+
+        filterMovieAndSeries(name) {
+            this.filteredMovie(name)
+            this.filteredSeries(name)
         }
     }
 }
 </script>
 
 <template>
-    <AppHeader @searched-film="filteredMovie" />
+    <AppHeader @searched-term="filterMovieAndSeries" />
     <AppMain />
 </template>
 

@@ -16,6 +16,7 @@ export default {
 
 <template>
     <CreateCard :listItem="store.filteredMovie" />
+    <CreateCard :listItem="store.filteredSeries" />
 </template>
 
 
