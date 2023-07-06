@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
 
+// Import Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import App from './App.vue'
 
 /* import the fontawesome core */

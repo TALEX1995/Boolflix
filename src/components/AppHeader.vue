@@ -25,7 +25,21 @@ export default {
 </script>
 
 <template>
-    <SearchBar :labelInput="'Inserisci il titolo del film o della serie tv'" @form-submit="getTitleFilter" />
+    <header class="container">
+        <img src="../assets/img/logoBoolflix.png" alt="Boolflix">
+        <SearchBar :placeholder="'Cerca il titolo di un film o serie tv'" @form-submit="getTitleFilter" />
+    </header>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@use '../assets/scss/_vars.scss' as *;
+
+header {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: $header-bkg;
+}
+</style>
