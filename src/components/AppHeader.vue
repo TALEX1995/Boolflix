@@ -17,7 +17,7 @@ export default {
     emits: ['searched-term'],
 
     methods: {
-        getMovieName(name) {
+        getTitleFilter(name) {
             this.$emit('searched-term', name)
         }
     }
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <SearchBar :labelInput="'Inserisci il titolo del film'" @form-submit="getMovieName" />
+    <SearchBar :labelInput="'Inserisci il titolo del film o della serie tv'" @form-submit="getTitleFilter" />
 </template>
 
 <style></style>

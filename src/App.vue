@@ -23,7 +23,7 @@ export default {
         filteredMovie(name) {
             axios.get(`${baseUri}/movie?api_key=${keyApi}&query=${name}&language=it-IT`)
                 .then((res) => {
-                    store.filteredMovie = res.data.results.map((movie) => {
+                    store.filteredMovies = res.data.results.map((movie) => {
                         const { original_title, original_language, title, vote_average } = movie
                         const vote = Math.ceil(vote_average / 2)
                         return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote }
@@ -47,6 +47,11 @@ export default {
         },
 
         filterMovieAndSeries(name) {
+            if (!name) {
+                store.filteredMovies = [];
+                store.filteredSeries = [];
+                return;
+            }
             this.filteredMovie(name)
             this.filteredSeries(name)
         }

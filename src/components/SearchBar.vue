@@ -14,11 +14,11 @@ export default {
 </script>
 
 <template>
-    <form class="w-50" @submit.prevent>
+    <form class="w-50" @submit.prevent="$emit('form-submit', searchedTerm), searchedTerm = ''">
         <div class="form-group">
-            <label for="input-text">{{ labelInput }}</label>
+            <label for="input-text">{{ labelInput || 'cerca' }}</label>
             <input v-model.trim="searchedTerm" type="text" class="form-control" id="input-text">
-            <button @click="$emit('form-submit', searchedTerm), searchedTerm = ''">Cerca</button>
+            <button>Cerca</button>
         </div>
     </form>
 </template>

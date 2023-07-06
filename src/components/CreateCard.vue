@@ -1,21 +1,32 @@
 <script>
 export default {
     props: {
-        listItem: Array
+        item: Object,
+    },
+
+    computed: {
+        hasFlag() {
+            return this.item.originalLanguage === 'en' || this.item.originalLanguage === 'it'
+        },
+
+        getFlagSrc() {
+            const url = new URL(`../assets/img/${this.item.originalLanguage}.png`, import.meta.url);
+
+            return url.href
+        }
     }
 }
 </script>
 
 <template>
     <ul>
-        <li v-for="item in listItem" key="item">
-            <span>Titolo originale: {{ item.originalTitle }}</span> <br>
-            <span>Titolo in Italiano: {{ item.itTitle }}</span> <br>
-            <span v-if="item.originalLanguage === 'en' || item.originalLanguage === 'it'"><img
-                    :src="`./src/assets/img/${item.originalLanguage}.png`" :alt="`flag ${item.originalLanguage}`"></span>
-            <span v-else>Lingua: {{ item.originalLanguage }}</span> <br>
-            <span>Voto: {{ item.vote }}</span> <br>
+        <li>Titolo originale: {{ item.originalTitle }}</li>
+        <li>Titolo in Italiano: {{ item.itTitle }}</li>
+        <li v-if="this.hasFlag">
+            <img :src="getFlagSrc" :alt="item.originalLanguage">
         </li>
+        <li v-else>Lingua: {{ item.originalLanguage }}</li>
+        <li>Voto: {{ item.vote }}</li>
     </ul>
 </template>
 

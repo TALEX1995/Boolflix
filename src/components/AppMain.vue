@@ -15,8 +15,15 @@ export default {
 </script>
 
 <template>
-    <CreateCard :listItem="store.filteredMovie" />
-    <CreateCard :listItem="store.filteredSeries" />
+    <div>
+        <h2>Movie</h2>
+        <CreateCard v-for="movie in store.filteredMovies" :item="movie" :key="movie" />
+    </div>
+
+    <div>
+        <h2>Series</h2>
+        <CreateCard v-for="serie in store.filteredSeries" :item="serie" :key="serie" />
+    </div>
 </template>
 
 
