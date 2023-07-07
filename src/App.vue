@@ -25,10 +25,10 @@ export default {
             axios.get(`${baseUri}/movie?api_key=${keyApi}&query=${name}&language=it-IT`)
                 .then((res) => {
                     store.filteredMovies = res.data.results.map((movie) => {
-                        const { original_title, original_language, title, vote_average, poster_path } = movie
+                        const { original_title, original_language, title, vote_average, poster_path, overview } = movie
                         const vote = Math.ceil(vote_average / 2)
                         const posterUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`
-                        return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote, posterUrl }
+                        return { originalTitle: original_title, originalLanguage: original_language, itTitle: title, vote, posterUrl, overview }
                     })
                 }).catch((err) => {
                     console.log(err)
