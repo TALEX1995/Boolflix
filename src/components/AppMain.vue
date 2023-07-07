@@ -15,6 +15,14 @@ export default {
     computed: {
         hasProduct() {
             return store.filteredMovies.length || store.filteredSeries.length ? true : false
+        },
+
+        hasMovie() {
+            return store.filteredMovies.length > 0
+        },
+
+        hasSerie() {
+            return store.filteredSeries.length > 0
         }
     }
 }
@@ -26,7 +34,7 @@ export default {
     </main>
     <main v-else class="container">
         <!-- Movie -->
-        <h2>Movie</h2>
+        <h2 v-if="hasMovie">Movie</h2>
         <section id="movie" class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 
             <CreateCard v-for="movie in store.filteredMovies" :item="movie" :key="movie" />
@@ -34,7 +42,7 @@ export default {
         </section>
 
         <!-- Series -->
-        <h2>Series</h2>
+        <h2 v-if="hasSerie">Series</h2>
         <section id="series" class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 
             <CreateCard v-for="serie in store.filteredSeries" :item="serie" :key="serie" />

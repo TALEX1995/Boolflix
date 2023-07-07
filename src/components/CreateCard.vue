@@ -24,7 +24,8 @@ export default {
                 posterUrl = this.item.posterUrl
             }
             return posterUrl
-        }
+        },
+
     },
 
     methods: {
@@ -98,5 +99,9 @@ span.bold-text {
         padding: $rem05 $rem05;
         height: 513px;
     }
+}
+
+li div {
+    margin: 5px 0;
 }
 </style>
