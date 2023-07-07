@@ -13,6 +13,17 @@ export default {
             const url = new URL(`../assets/img/${this.item.originalLanguage}.png`, import.meta.url);
 
             return url.href
+        },
+
+        srcPoster() {
+            // return this.item.posterUrl ? this.item.posterUrl : 'aaa'
+            let posterUrl = ''
+            if (this.item.posterUrl.includes('null')) {
+                posterUrl = 'https://prestashop.com/sites/default/files/wysiwyg/404_not_found.png'
+            } else {
+                posterUrl = this.item.posterUrl
+            }
+            return posterUrl
         }
     },
 
@@ -27,8 +38,9 @@ export default {
 <template>
     <ul>
         <li>
-            <img :src="item.posterUrl" :alt="item.originalTitle">
+            <img :src="srcPoster" :alt="item.originalTitle">
         </li>
+
         <li>Titolo originale: {{ item.originalTitle }}</li>
         <li>Titolo in Italiano: {{ item.itTitle }}</li>
 
