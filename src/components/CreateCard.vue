@@ -65,4 +65,9 @@ img.flag {
     max-width: 40px;
     height: auto;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
 </style>
