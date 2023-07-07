@@ -14,6 +14,12 @@ export default {
 
             return url.href
         }
+    },
+
+    methods: {
+        starIcon(n) {
+            return this.item.vote >= n ? 'fas' : 'far'
+        }
     }
 }
 </script>
@@ -34,9 +40,7 @@ export default {
         <li>
 
             <!-- Cicle to change vote in star -->
-            <span v-for="index in 5" :key="index">
-                <span v-if="item.vote >= index"><font-awesome-icon :icon="['fas', 'star']" /></span>
-                <span v-else> <font-awesome-icon :icon="['far', 'star']" /> </span>
+            <span v-for="index in 5" :key="index"><font-awesome-icon :icon="[starIcon(index), 'star']" />
             </span>
 
         </li>
