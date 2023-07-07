@@ -73,7 +73,7 @@ img.flag {
 
 img.poster {
     width: 100%;
-    min-height: 513px;
+    height: 513px;
 }
 
 span.bold-text {
@@ -96,7 +96,7 @@ span.bold-text {
         background-color: $body-bkg;
         color: white;
         padding: $rem05 $rem05;
-        max-height: 513px;
+        height: 513px;
     }
 }
 </style>
