@@ -83,6 +83,8 @@ span.bold-text {
 
 .poster-container {
 
+    .poster {}
+
     &:hover .poster {
         display: none;
     }
@@ -98,10 +100,37 @@ span.bold-text {
         color: white;
         padding: $rem05 $rem05;
         height: 513px;
+        animation: text-in 1000ms linear
     }
 }
 
 li div {
     margin: 5px 0;
+}
+
+@keyframes text-in {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.2;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+    60% {
+        opacity: 0.6;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 </style>
